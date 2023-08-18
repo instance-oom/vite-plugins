@@ -1,13 +1,21 @@
 {
-  "name": "ins-oom/vite-plugins",
-  "version": "1.0.0",
+  "name": "ins-oom-vite-plugins",
+  "version": "0.0.1",
   "description": "",
-  "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "build": "rm -rf dist && tsc"
+  },
   "keywords": [],
   "author": "",
   "license": "MIT",
+  "typings": "dist",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
-    "@changesets/cli": "^2.26.2"
+    "@types/node": "^20.5.0",
+    "typescript": "^5.1.6",
+    "vite": "^4.4.9"
   }
 }
