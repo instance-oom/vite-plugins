@@ -1,0 +1,20 @@
+{
+  "name": "@i-oom/vite-plugins/i18n-locales",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "build": "rm -rf dist && tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "typings": "dist",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "typescript": "^5.1.6",
+    "vite": "^4.4.9"
+  }
+}
