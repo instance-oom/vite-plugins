@@ -6,7 +6,7 @@ const i18nLocalesPlugin = (opts: { dir: string }): Plugin => {
   const baseDir = path.normalize(opts.dir);
   if (!fs.existsSync(baseDir)) throw new Error(`[i18n-locales] Dir(${opts.dir}) is not exists`);
 
-  const virtualModuleId = '@i-oom/vite-plugins/i18n-locales/locales';
+  const virtualModuleId = 'ddr-i18n-locales/locales';
   const resolvedVirtualModuleId = '\0' + virtualModuleId;
 
   const readFiles = (dirPath: string) => {
@@ -28,6 +28,7 @@ const i18nLocalesPlugin = (opts: { dir: string }): Plugin => {
 
   return {
     name: 'i18n-locales',
+    enforce: 'pre',
     resolveId(id: string) { if (id === virtualModuleId) return resolvedVirtualModuleId; },
     load(id: string) {
       if (id !== resolvedVirtualModuleId) return;

@@ -1,0 +1,35 @@
+{
+  "name": "ddr-i18n-locales",
+  "version": "0.0.4",
+  "description": "",
+  "files": [
+    "lib",
+    "README.md"
+  ],
+  "main": "./lib/index.cjs",
+  "module": "./lib/index.mjs",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.mjs",
+      "require": "./lib/index.cjs"
+    },
+    "./locales": {
+      "types": "./lib/locales.d.ts",
+      "import": "./lib/locales.mjs",
+      "require": "./lib/locales.cjs"
+    }
+  },
+  "scripts": {
+    "build": "unbuild"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "unbuild": "^1.2.1",
+    "vue-i18n": "^9.2.2"
+  },
+  "registry": "https://registry.npmjs.org"
+}
