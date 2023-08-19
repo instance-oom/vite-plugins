@@ -5,8 +5,8 @@ const i18nLocalesPlugin = (opts) => {
   const baseDir = path.normalize(opts.dir);
   if (!fs.existsSync(baseDir))
     throw new Error(`[i18n-locales] Dir(${opts.dir}) is not exists`);
-  const virtualModuleId = "ddr-i18n-locales/locales";
-  const resolvedVirtualModuleId = "\0" + virtualModuleId;
+  const virtualModuleIds = ["ddr-i18n-locales/locales", "ddr-i18n-locales/lib/locales"];
+  const resolvedVirtualModuleId = "\0ddr-i18n-locales/locales";
   const readFiles = (dirPath) => {
     const result = {};
     const items = fs.readdirSync(dirPath).sort();
@@ -30,7 +30,7 @@ const i18nLocalesPlugin = (opts) => {
     name: "i18n-locales",
     enforce: "pre",
     resolveId(id) {
-      if (id === virtualModuleId)
+      if (virtualModuleIds.includes(id))
         return resolvedVirtualModuleId;
     },
     load(id) {

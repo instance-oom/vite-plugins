@@ -1,6 +1,6 @@
 {
   "name": "ddr-i18n-locales",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "",
   "files": [
     "lib",
@@ -19,7 +19,8 @@
       "types": "./lib/locales.d.ts",
       "import": "./lib/locales.mjs",
       "require": "./lib/locales.cjs"
-    }
+    },
+    "./lib/*": "./lib/*"
   },
   "scripts": {
     "build": "unbuild"
