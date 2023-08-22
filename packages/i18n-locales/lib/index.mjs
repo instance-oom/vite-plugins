@@ -1,7 +1,19 @@
 import fs from 'fs';
 import path from 'path';
+import { keysIn, merge, isPlainObject } from 'lodash';
 
+const flattenObject = (obj, parentKey = "") => {
+  let result = {};
+  const keys = keysIn(obj);
+  for (const key of keys) {
+    const newKey = parentKey ? `${parentKey}.${key}` : key;
+    const value = obj[key];
+    result = merge(result, isPlainObject(value) ? flattenObject(value, newKey) : { [newKey]: value });
+  }
+  return result;
+};
 const i18nLocalesPlugin = (opts) => {
+  opts = Object.assign({ flatKey: false }, opts);
   const baseDir = path.normalize(opts.dir);
   if (!fs.existsSync(baseDir))
     throw new Error(`[i18n-locales] Dir(${opts.dir}) is not exists`);
@@ -18,7 +30,8 @@ const i18nLocalesPlugin = (opts) => {
       } else {
         const content = fs.readFileSync(itemPath).toString();
         try {
-          itemData = JSON.parse(content);
+          const objData = JSON.parse(content);
+          itemData = opts.flatKey ? flattenObject(objData) : objData;
         } catch (err) {
         }
       }

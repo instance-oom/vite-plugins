@@ -2,13 +2,25 @@
 
 const fs = require('fs');
 const path = require('path');
+const lodash = require('lodash');
 
 function _interopDefaultCompat (e) { return e && typeof e === 'object' && 'default' in e ? e.default : e; }
 
 const fs__default = /*#__PURE__*/_interopDefaultCompat(fs);
 const path__default = /*#__PURE__*/_interopDefaultCompat(path);
 
+const flattenObject = (obj, parentKey = "") => {
+  let result = {};
+  const keys = lodash.keysIn(obj);
+  for (const key of keys) {
+    const newKey = parentKey ? `${parentKey}.${key}` : key;
+    const value = obj[key];
+    result = lodash.merge(result, lodash.isPlainObject(value) ? flattenObject(value, newKey) : { [newKey]: value });
+  }
+  return result;
+};
 const i18nLocalesPlugin = (opts) => {
+  opts = Object.assign({ flatKey: false }, opts);
   const baseDir = path__default.normalize(opts.dir);
   if (!fs__default.existsSync(baseDir))
     throw new Error(`[i18n-locales] Dir(${opts.dir}) is not exists`);
@@ -25,7 +37,8 @@ const i18nLocalesPlugin = (opts) => {
       } else {
         const content = fs__default.readFileSync(itemPath).toString();
         try {
-          itemData = JSON.parse(content);
+          const objData = JSON.parse(content);
+          itemData = opts.flatKey ? flattenObject(objData) : objData;
         } catch (err) {
         }
       }

@@ -1,6 +1,6 @@
 {
   "name": "ddr-i18n-locales",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "",
   "files": [
     "lib",
@@ -29,8 +29,12 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@types/lodash": "^4.14.197",
     "unbuild": "^1.2.1",
     "vue-i18n": "^9.2.2"
   },
-  "registry": "https://registry.npmjs.org"
+  "registry": "https://registry.npmjs.org",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
 }

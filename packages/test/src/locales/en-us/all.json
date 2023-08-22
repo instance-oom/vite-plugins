@@ -1,3 +1,9 @@
 {
-  "home": "Home"
+  "home": "Home",
+  "table": {
+    "test": "12312",
+    "test2": {
+      "A": "a"
+    }
+  }
 }

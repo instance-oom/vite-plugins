@@ -8,7 +8,7 @@ import path from 'node:path';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    i18nLocalesPlugin({ dir: path.resolve(__dirname, './src/locales') }),
+    i18nLocalesPlugin({ dir: path.resolve(__dirname, './src/locales'), flatKey: true }),
     vue(),
   ],
   resolve: {
