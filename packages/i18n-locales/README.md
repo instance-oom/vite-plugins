@@ -1,12 +1,12 @@
 ## 💿 Installation
 
 ```sh
-npm i ddr-i18n-locales
+npm i @instance-oom/i18n-locales
 ```
 
 ```ts
 // vite.config.ts
-import i18nLocalesPlugin from 'ddr-i18n-locales';
+import i18nLocalesPlugin from '@instance-oom/i18n-locales';
 
 export default defineConfig({
   plugins: [
@@ -24,7 +24,7 @@ import { createI18n } from 'vue-i18n'
  * All i18n resources specified in the plugin `include` option can be loaded
  * at once using the import syntax
  */
-import locales from 'ddr-i18n-locales/locales';
+import locales from '@instance-oom/i18n-locales/locales';
 
 const i18n = createI18n({
   locale: 'en',

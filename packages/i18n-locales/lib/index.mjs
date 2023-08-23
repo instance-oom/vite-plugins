@@ -17,8 +17,13 @@ const i18nLocalesPlugin = (opts) => {
   const baseDir = path.normalize(opts.dir);
   if (!fs.existsSync(baseDir))
     throw new Error(`[i18n-locales] Dir(${opts.dir}) is not exists`);
-  const virtualModuleIds = ["ddr-i18n-locales/locales", "ddr-i18n-locales/lib/locales"];
-  const resolvedVirtualModuleId = "\0ddr-i18n-locales/locales";
+  const virtualModuleIds = [
+    "ddr-i18n-locales/locales",
+    "ddr-i18n-locales/lib/locales",
+    "@instance-oom/i18n-locales/locales",
+    "@instance-oom/i18n-locales/lib/locales"
+  ];
+  const resolvedVirtualModuleId = "\0instance-oom/i18n-locales";
   const readFiles = (dirPath) => {
     const result = {};
     const items = fs.readdirSync(dirPath).sort();

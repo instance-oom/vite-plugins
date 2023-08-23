@@ -1,6 +1,6 @@
 {
-  "name": "ddr-i18n-locales",
-  "version": "0.0.6",
+  "name": "@instance-oom/i18n-locales",
+  "version": "0.0.4",
   "description": "",
   "files": [
     "lib",
@@ -36,5 +36,8 @@
   "registry": "https://registry.npmjs.org",
   "dependencies": {
     "lodash": "^4.17.21"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   }
 }
